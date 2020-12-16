@@ -15,14 +15,14 @@ export class PostService {
   }
 
   create = (post: Post): Observable<Post> =>{
-    return this.httpClient.post<Post>("temp", post)
+    return this.httpClient.post<Post>("http://localhost:3000/posts", post)
   }
 
-  update = (post: Post): Observable<Post> =>{
-    return this.httpClient.put<Post>("temp", post)
+  update = (post: Post, id: number): Observable<Post> =>{
+    return this.httpClient.put<Post>("http://localhost:3000/posts/" + id, post)
   }
 
   delete = (id: String) =>{
-    return this.httpClient.delete("temp")
+    return this.httpClient.delete("http://localhost:3000/posts/" + id)
   }
 }
