@@ -14,6 +14,10 @@ export class PostService {
     return this.httpClient.get<Post[]>("http://localhost:3000/posts")
   }
 
+  getSingle = (id: number): Observable<Post> => {
+    return this.httpClient.get<Post>('http://localhost:3000/posts/' + id);
+  }
+
   create = (post: Post): Observable<Post> =>{
     return this.httpClient.post<Post>("http://localhost:3000/posts", post)
   }
